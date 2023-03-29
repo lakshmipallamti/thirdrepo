@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: install git
+      command: yum install git -y
+    - name: install httpd
+      command: yum install httpd -y
+    - name: start httpd
+      command: systemctl start httpd
+      notify: restart httpd
+    - name: create file
+      file:
+        path: "/var/www/html/index.html"
+        state: touch
+    - name: inserting content into index.html
+      copy:
+        dest: "/var/www/html/index.html"
+        content: |
+          jenkins-ansible deployment
+  handlers:
+    - name: restart httpd
+      command: systemctl restart httpd
