@@ -4,11 +4,11 @@
   connection: local
   tasks:
     - name: install git
-      command: yum install git -y
+      action: yum pkg=git state=present
     - name: install httpd
-      command: yum install httpd -y
+      command: yum pkg=httpd state=present
     - name: start httpd
-      command: systemctl start httpd
+      action: service name=httpd state=started
       notify: restart httpd
     - name: create file
       file:
@@ -21,4 +21,4 @@
           jenkins-ansible deployment
   handlers:
     - name: restart httpd
-      command: systemctl restart httpd
+      action: service name=httpd state=restarted 
