@@ -15,7 +15,7 @@
       service:
         name: httpd
         state: started
-      notify: restart httpd
+      
     - name: create file
       file:
         path: "/var/www/html/index.html"
@@ -26,8 +26,4 @@
         dest: "/var/www/html/index.html"
         content: |
           jenkins-ansible deployment
-  handlers:
-    - name: restart httpd
-      service:
-        name: httpd
-        state: restarted 
+ 
