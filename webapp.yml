@@ -19,8 +19,8 @@
     - name: create file
       file:
         path: "/var/www/html/index.html"
-        state: touch
-        mode: 0777
+        state: file
+        mode: 0755
     - name: inserting content into index.html
       copy:
         dest: "/var/www/html/index.html"
