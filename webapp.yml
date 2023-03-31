@@ -20,7 +20,7 @@
       file:
         path: "/var/www/html/index.html"
         state: file
-        mode: 0755
+        mode: 0644
     - name: inserting content into index.html
       copy:
         dest: "/var/www/html/index.html"
