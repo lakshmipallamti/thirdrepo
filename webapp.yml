@@ -20,6 +20,7 @@
       file:
         path: "/var/www/html/index.html"
         state: touch
+        mode: 0777
     - name: inserting content into index.html
       copy:
         dest: "/var/www/html/index.html"
