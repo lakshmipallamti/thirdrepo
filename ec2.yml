@@ -4,13 +4,23 @@
   gather_facts: false
   connection: local
   tasks:
-    - name: install ec2 server
+    - name: launch the instances nginx,tomcat,mq
       ec2:
-        image: ami-0d81306eddc614a45
-        region: ap-south-1
         key_name: jenkins
-        zone: ap-south-1a
-        tags: 
-          Name: "ansible-server"
+        region: ap-south-1
+        vpc_id: vpc-04efc833a8e4caaa9
+        vpc_subnet_id: subnet-0d1039a6090769a67
+        assign_public_ip: yes
+        group_id: sg-0481f6bac5ffeb8f0
         instance_type: t2.micro
-        count: 1
+        image: ami-0d81306eddc614a45
+        monitoring: no
+        wait: yes
+        wait_timeout: 300
+        instance_tags:
+          Name: Node1
+        count_tag:
+        Name: Node1
+        exact_count: 1
+        register: ec2_info
+
