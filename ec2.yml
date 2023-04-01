@@ -1,8 +1,9 @@
 ---
 - hosts: test
   become: yes
+  gather_facts: false
   tasks:
-    - name: launch the instances nginx,tomcat,mq
+    - name: launch the instance
       ec2:
         key_name: jenkins
         region: ap-south-1
@@ -12,5 +13,6 @@
         group_id: sg-0481f6bac5ffeb8f0
         instance_type: t2.micro
         image: ami-0d81306eddc614a45
+      register: ec2
         
 
