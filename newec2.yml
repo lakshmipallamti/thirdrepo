@@ -1,0 +1,25 @@
+---
+- hosts: test
+  gather_facts: false
+  become: yes
+  tags: provisioning
+
+  vars:
+    keypair: jenkins
+    instance_type: t2.micro
+    image: ami-0d81306eddc614a45
+    wait: yes
+    count: 1
+    region: ap-south-1
+    security_group: jenkins-sg
+
+  tasks:
+    - name: create ec2 instance
+      local_action: ec2
+                    instance_type={{instance_type}}
+                    image={{image}}
+                    wait=true
+                    region={{region}}
+                    keypair={{keypair}}
+                    group={{security_group}}
+                    count={{count}}
