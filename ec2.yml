@@ -12,13 +12,5 @@
         group_id: sg-0481f6bac5ffeb8f0
         instance_type: t2.micro
         image: ami-0d81306eddc614a45
-        monitoring: no
-        wait: yes
-        wait_timeout: 300
-        instance_tags:
-          Name: Node1
-        count_tag:
-        Name: Node1
-        exact_count: 1
-      register: ec2_info
+        
 
