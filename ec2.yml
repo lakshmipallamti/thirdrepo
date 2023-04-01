@@ -20,5 +20,5 @@
         count_tag:
         Name: Node1
         exact_count: 1
-        register: ec2_info
+      register: ec2_info
 
