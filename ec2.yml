@@ -1,7 +1,6 @@
 ---
-- hosts: localhost
+- hosts: test
   become: yes
-  connection: local
   tasks:
     - name: launch the instances nginx,tomcat,mq
       ec2:
