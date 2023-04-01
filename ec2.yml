@@ -2,9 +2,14 @@
 - hosts: test
   become: yes
   gather_facts: false
+  vars:
+      ec2_access_key: AKIAW4QBUP22KUM3FBE7
+      ec2_secret_key: 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
   tasks:
     - name: launch the instance
       ec2:
+        aws_access_key: "{{ec2_access_key}}"
+        aws_secret_key: "{{ec2_secret_key}}"
         key_name: jenkins
         region: ap-south-1
         vpc_id: vpc-04efc833a8e4caaa9
