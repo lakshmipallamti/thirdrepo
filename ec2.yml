@@ -1,7 +1,6 @@
 ---
 - hosts: localhost
   become: yes
-  gather_facts: false
   connection: local
   tasks:
     - name: launch the instances nginx,tomcat,mq
