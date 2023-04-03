@@ -1,8 +1,7 @@
 ---
-- hosts: localhost
+- hosts: 15.207.116.238
   become: yes
   gather_facts: false
-  connection: local
   tasks:
     - name: creating ec2 instance using ansible playbook
       ec2:
