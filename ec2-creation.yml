@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: creating ec2 instance using ansible playbook
+      ec2:
+        region: ap-south-1
+        key_name: jenkins
+        image: ami-06e6b44dd2af20ed0
+        instance_type: t2.micro
+        instance_tags:
+          Name: ansible_server
+        wait: yes
+        wait_timeout: 300
+        count: 1
+        group: default
+        vpc_subnet_id: subnet-0f70079562205fbad
