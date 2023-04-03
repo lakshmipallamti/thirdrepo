@@ -1,7 +1,11 @@
 vi ./bashrc
 alias python=python3
 
-
+yum install python3-boto3 -y
+yum install python3-botocore -y
+yum install pip -y
+pip install boto
+pip install botocore
 
 python --version
 python 2.7
