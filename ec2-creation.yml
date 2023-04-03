@@ -10,7 +10,7 @@
         image: ami-06e6b44dd2af20ed0
         instance_type: t2.micro
         instance_tags:
-          Name: ansible_server
+          Name: jenkins-ansible-server
         wait: yes
         wait_timeout: 300
         count: 1
