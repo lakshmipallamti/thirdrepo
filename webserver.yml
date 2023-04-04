@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: cloning git repository
+      git:
+        repo: https://github.com/lakshmipallamti/thirdrepo.git
+        dest: /home/ec2-user/tmp
+        clone: yes
+        update: yes
+    - name: installing httpd
+      yum:
+        name: httpd
+        state: present
+    - name: start httpd
+      service: 
+        name: httpd
+        state: restarted
+    - name: creating index.html file
+      file:
+        path: /var/www/html/index.html
+        state: touch 
+    - name: adding content to the file
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          creation of webserver by using ansible playbook
+    
