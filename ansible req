@@ -1,3 +1,14 @@
+amazon-linux-extras install ansible2 -y
+yum install pip -y
+pip install boto3
+python
+import boto3
+import botocore
+exit()
+python --version
+
+------------------------
+
 vi ./bashrc
 alias python=python3
 
