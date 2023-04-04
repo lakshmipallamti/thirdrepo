@@ -25,5 +25,5 @@
       copy:
         dest: /var/www/html/index.html
         content: |
-          creation of webserver by using ansible playbook
+          creation of webserver by integrating ansible with jenkins
     
